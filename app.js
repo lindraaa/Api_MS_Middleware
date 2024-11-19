@@ -5,6 +5,8 @@ const app = express()
 const PORT = process.env.PORT || 9000;
 const mongoose = require("mongoose");
 
+const basicAuth = require("express-basic-auth")
+
 //routes
 const gundam_routes = require("./routes/gundam_routes")
 
@@ -15,6 +17,8 @@ mongoose.connect(process.env.LOCAL_DATABASE)
     .catch(err => {
         console.log("Connection Failed", err)
     })
+
+
 
 
 app.use(express.urlencoded({ extended: true }))
