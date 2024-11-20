@@ -5,10 +5,10 @@ const app = express()
 const PORT = process.env.PORT || 9000;
 const mongoose = require("mongoose");
 
-const basicAuth = require("express-basic-auth")
 
 //routes
-const gundam_routes = require("./routes/gundam_routes")
+const gundam_routes = require("./routes/gundam_routes");
+const { createBasicAuth } = require('./middleware');
 
 mongoose.connect(process.env.LOCAL_DATABASE)
     .then(() => {
@@ -21,13 +21,7 @@ mongoose.connect(process.env.LOCAL_DATABASE)
 
 
 
-app.use(basicAuth({
-    users: {
-        [process.env.ADMIN_USERNAME]: process.env.ADMIN_PASSWORD
-    },
-    challenge:true,
-    unauthorizedResponse: "Authorized Access ONLY!!!"
-}));
+app.use(createBasicAuth(process.env.ADMIN_USERNAME, process.env.ADMIN_PASSWORD))
 
 
 app.use(express.urlencoded({ extended: true }))
