@@ -23,8 +23,7 @@ module.exports.newGController = async (req, res) => {
         await new_gundam.save();
         return res.status(201).json({ message: "New Gundam Successfully Created" })
     } catch (err) {
-        console.log("Failed", err.message)
-        return res.status(500).json({ message: "Failed to Create Gundam" })
+        return res.status(500).json({ message: `Failed to Create Gundam ${err.message}` })
     }
 }
 
