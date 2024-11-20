@@ -21,6 +21,15 @@ mongoose.connect(process.env.LOCAL_DATABASE)
 
 
 
+app.use(basicAuth({
+    users: {
+        [process.env.ADMIN_USERNAME]: process.env.ADMIN_PASSWORD
+    },
+    challenge:true,
+    unauthorizedResponse: "Authorized Access ONLY!!!"
+}));
+
+
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/", gundam_routes)
