@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 
 //routes
 const gundam_routes = require("./routes/gundam_routes");
-const { createBasicAuth } = require('./middleware');
+const { createBasicAuth } = require('./middlewares/middleware');
 
 mongoose.connect(process.env.LOCAL_DATABASE)
     .then(() => {
