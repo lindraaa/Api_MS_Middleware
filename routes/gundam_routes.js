@@ -7,6 +7,6 @@ const router = express.Router();
 router.get("/", gundam.indexController)
       .post("/newGundam", validateInfo, gundam.newGController)
       .delete("/:id", gundam.delGController)
-      .put("/:id" ,gundam.updGController)
+      .put("/:id" ,validateInfo,gundam.updGController)
       
 module.exports = router;
