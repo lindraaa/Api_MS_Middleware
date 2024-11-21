@@ -29,3 +29,8 @@ Error Handling: Improve error handling and use custom error messages.
 Database: Replace the in-memory data structure with a real database like MongoDB, MySQL, or PostgreSQL.
 Authentication: Add authentication to secure your API endpoints (e.g., using JWT tokens or Passport.js).
 Environment Variables: Use environment variables (via .env file) to manage sensitive information like database credentials.
+
+
+cookie-parser
+express-session
+
