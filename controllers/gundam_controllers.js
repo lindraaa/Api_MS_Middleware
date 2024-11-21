@@ -14,7 +14,7 @@ module.exports.indexController = async (req, res) => {
 
 }
 
-module.exports.newGController = async (req, res) => {
+module.exports.newGController = async (req, res, next) => {
     try {
         console.log(req.body)
         // const {name,description,category,price} = req.body;
