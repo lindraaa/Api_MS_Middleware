@@ -1,12 +1,12 @@
 const express = require("express");
-const { indexController, newGController,delGController, updGController } = require("../controllers/gundam_controllers");
+const gundam = require("../controllers/gundam_controllers");
 const {validateInfo} = require("../middlewares/middleware")
 const router = express.Router();
 
 
-router.get("/", indexController)
-      .post("/newGundam", validateInfo, newGController)
-      .delete("/:id", delGController)
-      .put("/:id" ,updGController)
+router.get("/", gundam.indexController)
+      .post("/newGundam", validateInfo, gundam.newGController)
+      .delete("/:id", gundam.delGController)
+      .put("/:id" ,gundam.updGController)
       
 module.exports = router;
