@@ -1,12 +1,12 @@
 const express = require("express");
 const gundam = require("../controllers/gundam_controllers");
-const {validateInfo} = require("../middlewares/middleware")
+const {validateInfo,createBasicAuth} = require("../middlewares/middleware")
 const router = express.Router();
 
 
 router.get("/", gundam.indexController)
       .post("/newGundam", validateInfo, gundam.newGController)
-      .delete("/:id", gundam.delGController)
-      .put("/:id" ,validateInfo,gundam.updGController)
+      .delete("/:id", createBasicAuth(process.env.ADMIN_USERNAME, process.env.ADMIN_PASSWORD), gundam.delGController)
+      .put("/:id" , createBasicAuth(process.env.ADMIN_USERNAME, process.env.ADMIN_PASSWORD),validateInfo,gundam.updGController)
       
 module.exports = router;

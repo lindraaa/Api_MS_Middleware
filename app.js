@@ -21,7 +21,6 @@ mongoose.connect(process.env.LOCAL_DATABASE)
 
 
 
-// app.use(createBasicAuth(process.env.ADMIN_USERNAME, process.env.ADMIN_PASSWORD))
 
 //for postman testing
 app.use(express.json());
