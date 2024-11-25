@@ -47,7 +47,6 @@ module.exports.updGController = async (req,res,next)=>{
     const {id} = req.params //first get the id 
     const gundam_info = {...req.body}; // then catch the details
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message:"Invalid ID"})
-
     try{
         const gundam = await Gundam.findByIdAndUpdate(id,gundam_info,{new:true})
         res.status(200).json({message:"Updated Succesfully"})
