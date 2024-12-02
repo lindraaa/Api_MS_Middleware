@@ -9,6 +9,7 @@ module.exports.createBasicAuth = (username, password, unAuthorizedMessage = "Aut
         challenge: true,
         unauthorizedResponse: unAuthorizedMessage
     })
+    
 }
 
 module.exports.validateInfo = (req, res, next) => {
